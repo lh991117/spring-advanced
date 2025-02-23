@@ -25,11 +25,12 @@ public class UserService {
 
     @Transactional
     public void changePassword(long userId, UserChangePasswordRequest userChangePasswordRequest) {
-        if (userChangePasswordRequest.getNewPassword().length() < 8 ||
-                !userChangePasswordRequest.getNewPassword().matches(".*\\d.*") ||
-                !userChangePasswordRequest.getNewPassword().matches(".*[A-Z].*")) {
-            throw new InvalidRequestException("새 비밀번호는 8자 이상이어야 하고, 숫자와 대문자를 포함해야 합니다.");
-        }
+        //밑의 예외처리 코드는 valid를 사용하여 구현할 수 있다.
+//        if (userChangePasswordRequest.getNewPassword().length() < 8 ||
+//                !userChangePasswordRequest.getNewPassword().matches(".*\\d.*") ||
+//                !userChangePasswordRequest.getNewPassword().matches(".*[A-Z].*")) {
+//            throw new InvalidRequestException("새 비밀번호는 8자 이상이어야 하고, 숫자와 대문자를 포함해야 합니다.");
+//        }
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new InvalidRequestException("User not found"));
