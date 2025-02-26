@@ -69,6 +69,7 @@ class ManagerServiceTest {
             managerService.saveManager(authUser, todoId, managerSaveRequest)
         );
 
+        //해당 메세지를 반환하는 조건을 생성해야한다.
         assertEquals("일정을 만든 유저 정보가 존재하지 않습니다.", exception.getMessage());
     }
 
