@@ -8,9 +8,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(SpringExtension.class)
 class PasswordEncoderTest {
 
-    private final PasswordEncoder passwordEncoder = new PasswordEncoder();
+    @InjectMocks
+    private PasswordEncoder passwordEncoder;
 
     @Test
     void matches_메서드가_정상적으로_동작한다() {
